@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/categories_screen.dart';
+import 'package:meals_app/screens/categories_screen.dart';
+import 'package:meals_app/screens/category_meals_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,11 +21,20 @@ class MyApp extends StatelessWidget {
               headline6: TextStyle(
                 fontFamily: "RobotoCondensed",
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
       ),
-      home: CategoriesScreen(),
+      // home: CategoriesScreen(),
+      // initial route is to be used when you do not want default route to be used
+      initialRoute: '/',
+      routes: {
+        // if not using home use this as default route
+        // if using home do not use this.
+        '/': (_) => CategoriesScreen(),
+        CategoryMealsScreen.CATEGORIES_MEALS_SCREEN_ROUTE: (_) =>
+            CategoryMealsScreen(),
+      },
     );
   }
 }
