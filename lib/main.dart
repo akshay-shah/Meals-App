@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/category_meals_screen.dart';
+import 'package:meals_app/screens/filter_screen.dart';
 import 'package:meals_app/screens/meal_detail_screen.dart';
+import 'package:meals_app/screens/tabs_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Meals App',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primaryColor: Colors.pink,
         accentColor: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: "Raleway",
@@ -32,10 +34,10 @@ class MyApp extends StatelessWidget {
       routes: {
         // if not using home use this as default route
         // if using home do not use this.
-        '/': (_) => CategoriesScreen(),
-        CategoryMealsScreen.CATEGORIES_MEALS_SCREEN_ROUTE: (_) =>
-            CategoryMealsScreen(),
-        MealDetailScreen.MEAL_DETAIL_SCREEN: (_) => MealDetailScreen(),
+        '/': (_) => TabsScreen(),
+        CategoryMealsScreen.routeName: (_) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (_) => MealDetailScreen(),
+        FiltersScreen.routeName: (_) => FiltersScreen(),
       },
       onUnknownRoute: (settings) => MaterialPageRoute(
         builder: (context) => CategoriesScreen(),
